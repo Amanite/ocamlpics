@@ -65,7 +65,7 @@ let draw_random_dots (x,y) =
 	let random_color = rgb (Random.int(255)) (Random.int(255)) (Random.int(255)) in
 	set_color random_color;
 	plot (Random.int(x)) (Random.int(y))
-	(* generates a random triangle of a random color that may not be bigger than the x and y given as parameters *) 
+	(* generates a random dot of a random color within a rectangle which size is x*y *) 
 
 let usage() =
 	Printf.printf "Genetic algorithm building pictures based on evolutive pressure and random number generation \n
