@@ -77,13 +77,11 @@ let draw_random_triangle (x,y) =
 let usage() =
 	Printf.printf "Genetic algorithm building pictures based on evolutive pressure and random number generation \n
 	Syntax : ./pixevolution <file>, where file is a valid picture file, format supported : .png, .jpg, .bmp, .gif, .ppm, .pgm"
-	
+
 let original = array_of_pic Sys.argv.(1)
 	
 let initialization() =
 	Unix.sleep 1;
-	let x = Array.length original.(0)
-	and y = Array.length original in
 	open_graph " 1000x1000";
 	Random.self_init();
 	draw_pic 600 400 original
