@@ -10,10 +10,6 @@ let draw_pic x y t = dessiner_image_position x y t
 
 (* renaming functions in order to make this understandable to mostly anyone*)
 
-let monalisa = array_of_pic "monalisa_128.jpg"
-
-let monalisa2 = array_of_pic "monalisa_2.jpg"
-
 
 let squared256 = 256*256
 
