@@ -94,14 +94,14 @@ let runloop s =
 		dessiner_image_position 0 0 !best_attempt in
 	while !run do
 		let new_attempt = mutate() in
-		if new_attempt >= !record then begin
+		if new_attempt >= !record then 
 			canvas := dump_image(get_image 0 0 x y);
 			record := new_attempt;
 			best_attempt := !canvas;
 			redraw()end
-		else begin
+		else 
 			canvas := !best_attempt;
-			redraw() end
+			redraw()
 	done
 	
 let _ = if Array.length(Sys.argv) <> 2 then usage()
