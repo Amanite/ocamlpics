@@ -69,7 +69,7 @@ let draw_random_dots (x,y) =
 
 let usage() =
 	Printf.printf "Genetic algorithm building pictures based on evolutive pressure and random number generation \n
-	Syntax : %s <file>, where file is a valid picture file, format supported : .png, .jpg, .bmp, .gif, .ppm, .pgm" Sys.argv.(0)
+	Syntax : %s <file>, where file is a valid picture file, format supported : .png, .jpg, .bmp, .gif, .ppm, .pgm " Sys.argv.(0)
 	
 let original = array_of_pic Sys.argv.(1)
 
