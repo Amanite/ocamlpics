@@ -10,10 +10,10 @@ let draw_pic x y t = dessiner_image_position x y t
 
 (* renaming functions in order to make this understandable to mostly anyone*)
 
-let rgb_of_int n = 
-	let r = n/squared256 in
-	let g = n/256 - (256*r) in
-	let b = n - (squared256 * r + (256*g)) in
+let rgb_of_int n =
+	let r = n lsr 16
+	and g = (n lsr 8) land 255
+	and b = n land 255 in
 	[|r;g;b|]
 (* retrieving rgb values from a color integer *) 
 
