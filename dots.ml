@@ -18,9 +18,9 @@ let cubed256 = squared256*256
 (* defining two constants that will be used heavily in order to compute them only once *)
 
 let rgb_of_int n = 
-	let r = n/squared256 in
-	let g = n/256 - (256*r) in
-	let b = n - (squared256 * r + (256*g)) in
+	let r = n lsr 16 in
+	let g = (n lsr 8) land 255 in
+	let b = n land 255 in
 	[|r;g;b|]
 (* retrieving rgb values from a color integer *) 
 
