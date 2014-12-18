@@ -21,12 +21,16 @@ let int_of_rgb t = t.(0) * squared256 + t.(1)*256 + t.(2)
 
 (* creating an integer rgb value from an explicit array *)
 
-let rgb_of_int n = 
-	let r = n lsr 16 in
-	let g = (n lsr 8) land 255 in
-	let b = n land 255 in
-	[|r;g;b|]
-	
+let likeness n1 n2 =
+	let rgb1 = rgb_of_int n1
+	and rgb2 = rgb_of_int n2 in
+	let delta_red = abs (rgb1.(0) - rgb2.(0)) in
+	let delta_green = abs (rgb1.(1) - rgb2.(1)) in
+	let delta_blue = abs (rgb1.(2) - rgb2.(2)) in
+	let sum_delta = delta_green + delta_blue + delta_red in
+	let resultat = float_of_int (sum_delta) /. float_of_int(3*256) in
+	let percentage = (1. -. resultat) *. 100. in
+	percentage
 	(* likeness m n returns the likeness in percentage of two pixels represented by integers *)
 	
 let comparison_array t1 t2 = 
