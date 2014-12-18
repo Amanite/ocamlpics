@@ -10,13 +10,6 @@ let draw_pic x y t = dessiner_image_position x y t
 
 (* renaming functions in order to make this understandable to mostly anyone*)
 
-
-let squared256 = 256*256
-
-let cubed256 = squared256*256
-
-(* defining two constants that will be used heavily in order to compute them only once *)
-
 let rgb_of_int n = 
 	let r = n lsr 16 in
 	let g = (n lsr 8) land 255 in
