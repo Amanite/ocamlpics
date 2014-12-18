@@ -98,7 +98,7 @@ let runloop s =
 			canvas := dump_image(get_image 0 0 x y);
 			record := new_attempt;
 			best_attempt := !canvas;
-			redraw()end
+			redraw()
 		else 
 			canvas := !best_attempt;
 			redraw()
