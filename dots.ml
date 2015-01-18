@@ -8,6 +8,8 @@ let save_pic t s = sauver_image t s
 
 let draw_pic x y t = dessiner_image_position x y t
 
+let squared256 = 256*256
+
 (* renaming functions in order to make this understandable to mostly anyone*)
 
 let rgb_of_int n = 
@@ -88,13 +90,17 @@ let runloop s =
 	while !run do
 		let new_attempt = mutate() in
 		if new_attempt >= !record then 
-			canvas := dump_image(get_image 0 0 x y);
-			record := new_attempt;
-			best_attempt := !canvas;
-			redraw()
+			begin
+				canvas := dump_image(get_image 0 0 x y);
+				record := new_attempt;
+				best_attempt := !canvas;
+				redraw()
+			end
 		else 
-			canvas := !best_attempt;
-			redraw()
+			begin	
+				canvas := !best_attempt;
+				redraw()
+			end
 	done
 	
 let _ = if Array.length(Sys.argv) <> 2 then usage()
