@@ -91,10 +91,12 @@ let runloop s =
 	while !run do
 		let new_attempt = mutate() in
 		if new_attempt >= !record then
-			canvas := dump_image(get_image 0 0 x y);
-			record := new_attempt;
-			best_attempt := !canvas;
-			redraw()
+			begin
+				canvas := dump_image(get_image 0 0 x y);
+				record := new_attempt;
+				best_attempt := !canvas;
+				redraw()
+			end
 		else 
 			begin
 				canvas := !best_attempt;
