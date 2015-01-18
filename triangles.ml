@@ -16,6 +16,7 @@ let rgb_of_int n =
 	and b = n land 255 in
 	[|r;g;b|]
 (* retrieving rgb values from a color integer *) 
+let squared256 = 256*256 
 
 let int_of_rgb t = t.(0) * squared256 + t.(1)*256 + t.(2)
 
@@ -94,9 +95,11 @@ let runloop s =
 			record := new_attempt;
 			best_attempt := !canvas;
 			redraw()
-		else
-			canvas := !best_attempt;
-			redraw() 
+		else 
+			begin
+				canvas := !best_attempt;
+				redraw() 
+			end
 	done
 	
 let _ = if Array.length(Sys.argv) <> 2 then usage()
